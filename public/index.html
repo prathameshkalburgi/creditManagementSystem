@@ -1,0 +1,38 @@
+<html>
+
+  <head>
+      <link rel="stylesheet" href="../LoginCSS.css">
+      <link rel="stylesheet" href="../commonCss/loader.css">
+      <title>Sign in</title>
+  </head>
+  
+  <body>
+    <div id="myNav" class="overlay">
+      <div class="overlay-content">
+        <div class="loader" id="loader">
+        </div>
+      </div>
+    </div>
+      <div class="main">
+          <p class="sign" align="center">Login</p>
+          <p class="form1"> 
+              
+              <input class="un " type="text" align="center" placeholder="Username" id="email">
+              <input class="pass" type="password" align="center" placeholder="Password" id="password">
+  
+              <button onclick="login()" class="submit" align="center">Sign in</button>
+              <p class="forgot" align="center"><a href="staffLogin.html"><b>Staff Login</b></p>
+        <!-- <p class="forgot" align="center"><a href="signup.html">signUp</p> -->
+      </p>
+  
+      </div>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+  <script src="firebase-conn/firebaseInitilzation.js"></script>
+  <script src="../auth.js"></script>
+    
+    </body>
+  
+    </html>

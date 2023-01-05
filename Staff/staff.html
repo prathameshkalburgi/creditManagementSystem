@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../Admin_Portal/AdminPortalCss/AddCustomer.css">
+    <link rel="stylesheet" href="../Admin_Portal/AdminPortalCss/addCustomer2.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body onload="getDetails()">
+
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CMS</span>
+    </div>
+      <ul class="nav-links">
+      
+        <li>
+          <a href="FuleCredit.html">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Fule Credit</span>
+          </a>
+        </li>
+       
+       
+        <!-- <li>
+          <a href="AdminSetting.html">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+        <li class="log_out">
+          <script>
+            function logout(){
+                window.location.href = "../Login.html";
+              // firebase.auth().signOut().then(function() {
+              //   console.log('Successfully added student');
+              //   window.location.href = "../Login.html";
+              // }, function(error) {
+              //     console.error('Sign Out Error', error);
+              // })
+            }
+          </script>
+          <a href="#" onclick = logout()>
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard"> Fule Credit</span>
+      </div>
+    </nav>
+    <div class="home-content">
+	  <div class = "overview-boxes">
+		<div class="apply_leave">
+          
+          <main>
+            
+            <section class="container" id="container">
+                
+              <!-- <form  id="form"> -->
+
+                <div class="containerSearch">
+                    <select class="selectTypeSearch" id="selectSearch">
+                      <option>select</option>
+                        <option value="cno">CNO</option>
+                        <option value="Name">Name</option>
+                    </select>
+                    <input id="search" type="text" placeholder="Type some text">
+                </div>
+                  <ul class="drop" id="drop"></ul>
+
+                  <div class="alertBox">
+
+                    <p>He has Exceeded his limit</p>
+                  </div>
+                
+
+                <div class="flex-container">
+                    
+                    <div class="flex-item-right">
+                        <div id="limit">0</div>
+                        <p class="total-limit" id="labelLimit"><b>Limit</b></p>
+                    </div>
+                    <div class="flex-item-right"><div id="Redeemed">0</div>
+                        <p class="total-limit"><b>Redeemed</b></p>
+                    </div>
+                    <div class="flex-item-right"><div id="balance">0</div>
+                        <p class="total-limit"><b>Balance</b></p>
+                    </div>
+                </div>
+                <div class="detailsCustomerMain">
+                    <h3 id="FullName">Name</h3>
+                    <!-- <div class="detailsCustomer">
+                    <div class="customerKey">Name</div>
+                    <div class="CustomerDivider">:</div>
+                    <div class="customerValues"></div><p>Pratham</p></div>
+
+                    <div class="detailsCustomer">
+                    <div class="customerKey">Name</div>
+                    <div class="CustomerDivider">:</div>
+                    <div class="customerValues"></div><p>Pratham</p></div> -->
+                    <div class="userDetailsTable">
+                    <table>
+                    <tbody>
+                        <tr>
+                          <td>C No:</td>
+                          <td id="CutomerNo">0</td>
+                        </tr>
+                        <tr>
+                          <td>Phone</td>
+                          <td id="phoneNo">0</td>
+                        </tr>
+                          <tr>
+                            <td>Address</td>
+                            <td id="Address">0</td>
+                          </tr>
+                          <tr>
+                            <td onclick="craditMoney()" id="craditMoney">cradit</td>
+                            <td onclick="debitMoney()" id="debitMoney">debit</td>
+                          </tr>
+                          <!-- <tr>
+                            <td>Vehicle No</td>
+                            <td colspan="2"><input type="text" placeholder="Vehicle Number"></td>
+                          </tr> -->
+                      </tbody>
+                    </table>
+                    <div class="craditMoneyClass">
+                    <input type="text" placeholder="Vehicle Number" class="vehicleNo" id="vehicleNo">
+                    <input type="text" placeholder="Cradit Rupees" class="vehicleNo" id="amount">
+                    <input type="text" placeholder="Bill No" class="vehicleNo" id="billNo">
+
+                    <button id="cancle" class="submitFuleButton">Cancel</button> 
+                    <button id="check" class="submitFuleButton">Check</button>       
+                    <button id="submit" class="submitFuleButton">Submit</button>
+                    
+                    </div>
+
+                    <div class="debitMoneyClass">
+                      <input type="text" placeholder="Amount Recieved" class="vehicleNo" id="refundRs">
+                      <button id="cancle" class="submitFuleButton">Cancel</button>      
+                      <button id="submitDebit" class="submitFuleButton">Submit</button>
+                    </div>
+                </div>
+                </div>
+  
+                
+                
+  
+  
+       </div>
+    </div>
+    </div>
+              <!-- </form> -->
+            </section>
+          </main>
+      
+		
+	  
+    
+ 
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+  <script src="../firebase-conn/firebaseInitilzation.js"></script>
+  <script src="../Admin_Portal/AdminPortalJs/searchBox.js"></script>
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+
+</body>
+</html>
+
